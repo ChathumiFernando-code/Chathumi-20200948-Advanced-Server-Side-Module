@@ -1,0 +1,25 @@
+{
+  "name": "chathumi-20200948-advanced-server-side-module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChathumiFernando-code/Chathumi-20200948-Advanced-Server-Side-Module.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChathumiFernando-code/Chathumi-20200948-Advanced-Server-Side-Module/issues"
+  },
+  "homepage": "https://github.com/ChathumiFernando-code/Chathumi-20200948-Advanced-Server-Side-Module#readme",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "mongodb": "^6.13.0"
+  }
+}
