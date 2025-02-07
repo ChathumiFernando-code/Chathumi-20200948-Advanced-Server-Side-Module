@@ -28,14 +28,26 @@ router.post("/", async (req, res) => {
 
 // @route  GET /api/students
 // @desc   Get all students
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
+    const { page = 1, limit = 5 } = req.query; // Default to page 1 and 5 students per page
+    const skip = (page - 1) * limit; // Calculate the number of records to skip
+  
     try {
-        const students = await Student.find();
-        res.status(200).json(students);
+      const students = await Student.find()
+        .skip(skip) // Skip previous records
+        .limit(Number(limit)); // Limit the number of records fetched
+  
+      const total = await Student.countDocuments(); // Total count of students for pagination
+      res.json({
+        students,
+        total,
+        totalPages: Math.ceil(total / limit),
+        currentPage: Number(page),
+      });
     } catch (error) {
-        handleErrors(res, error);
+      res.status(500).json({ message: error.message });
     }
-});
+  });
 
 // @route  PUT /api/students/:id
 // @desc   Update student details

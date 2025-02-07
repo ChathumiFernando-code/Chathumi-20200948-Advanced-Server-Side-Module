@@ -1,11 +1,11 @@
 const API_URL = 'http://localhost:5001/api/students';
 
-export const fetchStudents = async () => {
-  const response = await fetch(API_URL);
-  const data = await response.json();
-  return data;
+export const fetchStudents = async (page = 1, limit = 5) => {
+    const response = await fetch(`${API_URL}?page=${page}&limit=${limit}`);
+    const data = await response.json();
+    return data;
 };
-
+  
 export const createStudent = async (student) => {
   const response = await fetch(API_URL, {
     method: 'POST',
